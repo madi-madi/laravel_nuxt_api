@@ -14,8 +14,17 @@ class CreateDesignsTable extends Migration
     public function up()
     {
         Schema::create('designs', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('image');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('close_to_comment')->nullable();
+            $table->boolean('is_live')->default(false);
+
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
