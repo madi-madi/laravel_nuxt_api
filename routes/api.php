@@ -27,7 +27,7 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::put('settings/profile', 'User\SettingsController@updateProfile')->name('profile.update');
    Route::put('settings/password', 'User\SettingsController@updatePassword')->name('password.update');
    
-   Route::put('designs', 'Designs\UploadController@upload')->name('designs.upload');
+   Route::post('designs', 'Designs\UploadController@upload')->name('designs.upload');
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
