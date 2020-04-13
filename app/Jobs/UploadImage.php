@@ -8,6 +8,7 @@ use App\Models\Design;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -34,40 +35,50 @@ class UploadImage implements ShouldQueue
     public function handle()
     {
         $disk = $this->design->disk;
-        $file_name = $this->design->image;
-        $original_file = \storage_path().'/uploads/original'.$file_name;
+        $filename = $this->design->image;
+        $original_file = storage_path() . '/uploads/original/'. $filename;
 
-        try {
-            // create the larg image and save to tmp disk
+        try{
+            // create the Large Image and save to tmp disk
             Image::make($original_file)
-            ->fit(800,600 ,function($constraint){
-                $constraint->aspectRatio();
-            })
-            ->save($larg = \storage_path('uploads/larg'.$file_name));
-            // create the thumbnail image and save to tmp disk
+                ->fit(800, 600, function($constraint){
+                    $constraint->aspectRatio();
+                })
+                ->save($large = storage_path('uploads/large/'. $filename));
+
+            // Create the thumbnail image
             Image::make($original_file)
-            ->fit(800,600 ,function($constraint){
-                $constraint->aspectRatio();
-            })
-            ->save($thumbnail = \storage_path('uploads/thumbnail'.$file_name));
+                ->fit(250, 200, function($constraint){
+                    $constraint->aspectRatio();
+                })
+                ->save($thumbnail = storage_path('uploads/thumbnail/'. $filename));
+            
             // store images to permanent disk
             // original image
-            if(Stroage::disk($disk)->put('uploads/designs/original/'.$his->design->image,\fopen($original_file,'r+')))
-            File::delete($original_file);
+            if(Storage::disk($disk)
+                ->put('uploads/designs/original/'.$filename, fopen($original_file, 'r+'))){
+                    File::delete($original_file);
+                }
 
-            // thumbnail image
-            if(Stroage::disk($disk)->put('uploads/designs/thumbnail/'.$his->design->image,\fopen($thumbnail,'r+')))
-            File::delete($thumbnail);
+            // large images
+            if(Storage::disk($disk)
+                ->put('uploads/designs/large/'.$filename, fopen($large, 'r+'))){
+                    File::delete($large);
+                }
 
-            // larg image
-            if(Stroage::disk($disk)->put('uploads/designs/larg/'.$his->design->image,\fopen($larg,'r+')))
-            File::delete($larg);
+            // thumbnail images
+            if(Storage::disk($disk)
+                ->put('uploads/designs/thumbnail/'.$filename, fopen($thumbnail, 'r+'))){
+                    File::delete($thumbnail);
+                }
+            
+            // Update the database record with success flag
+            $this->design->update([
+                'upload_successfull' => true
+            ]);
 
-            // update database record with success flag
-            $this->design->update(['upload_successfull'=>true]);
-        } catch (\Exception $e) {
-            //throw $th;
-            Log::error($e->getMessage());
+        } catch(\Exception $e){
+            \Log::error($e->getMessage());
         }
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Design extends Model
 {
-    protected $filable = [
+    protected $fillable = [
         'user_id',
         'image',
         'title',
