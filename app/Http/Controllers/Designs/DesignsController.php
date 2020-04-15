@@ -6,6 +6,7 @@ use App\Models\Design;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DesignResource;
 
 class DesignsController extends Controller
 {
@@ -29,7 +30,7 @@ class DesignsController extends Controller
         [
             'message'=>trans('messages.success'),
             'errors'=>null,
-            'item'=>$design,
+            'item'=> new DesignResource($design),
         ]
     );
     }
