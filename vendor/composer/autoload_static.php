@@ -167,6 +167,7 @@ class ComposerStaticInit38b8dd62eac99b4f48b4f44c1f49faac
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentTaggable\\' => 27,
             'Cron\\' => 5,
             'Carbon\\' => 7,
         ),
@@ -493,6 +494,10 @@ class ComposerStaticInit38b8dd62eac99b4f48b4f44c1f49faac
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Cviebrock\\EloquentTaggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -571,12 +576,14 @@ class ComposerStaticInit38b8dd62eac99b4f48b4f44c1f49faac
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Resources\\DesignResource' => __DIR__ . '/../..' . '/app/Http/Resources/DesignResource.php',
         'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
         'App\\Jobs\\UploadImage' => __DIR__ . '/../..' . '/app/Jobs/UploadImage.php',
         'App\\Models\\Design' => __DIR__ . '/../..' . '/app/Models/Design.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\ResetPassword' => __DIR__ . '/../..' . '/app/Notifications/ResetPassword.php',
         'App\\Notifications\\VerifyEmail' => __DIR__ . '/../..' . '/app/Notifications/VerifyEmail.php',
+        'App\\Policies\\DesignPolicy' => __DIR__ . '/../..' . '/app/Policies/DesignPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -1312,6 +1319,13 @@ class ComposerStaticInit38b8dd62eac99b4f48b4f44c1f49faac
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Cviebrock\\EloquentTaggable\\Events\\ModelTagged' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Events/ModelTagged.php',
+        'Cviebrock\\EloquentTaggable\\Events\\ModelUntagged' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Events/ModelUntagged.php',
+        'Cviebrock\\EloquentTaggable\\Exceptions\\NoTagsSpecifiedException' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Exceptions/NoTagsSpecifiedException.php',
+        'Cviebrock\\EloquentTaggable\\Models\\Tag' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Models/Tag.php',
+        'Cviebrock\\EloquentTaggable\\ServiceProvider' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/ServiceProvider.php',
+        'Cviebrock\\EloquentTaggable\\Services\\TagService' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Services/TagService.php',
+        'Cviebrock\\EloquentTaggable\\Taggable' => __DIR__ . '/..' . '/cviebrock/eloquent-taggable/src/Taggable.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

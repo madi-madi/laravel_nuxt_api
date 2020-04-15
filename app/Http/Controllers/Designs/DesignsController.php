@@ -61,6 +61,6 @@ class DesignsController extends Controller
             ]
             ,200
         );
-        }
+        // }
     }
 }
