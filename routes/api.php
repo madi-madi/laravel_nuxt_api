@@ -29,6 +29,7 @@ Route::group(['middleware'=>['auth:api']],function(){
    
    Route::post('designs', 'Designs\UploadController@upload')->name('designs.upload');
    Route::post('designs/{id}', 'Designs\DesignsController@update')->name('designs.update');
+   Route::delete('designs/{id}', 'Designs\DesignsController@destroy')->name('designs.destroy');
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
