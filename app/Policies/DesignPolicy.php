@@ -53,7 +53,7 @@ class DesignPolicy
      */
     public function update(User $user, Design $design)
     {
-        return false;
+        return $design->user_id == $user->id;
     }
 
     /**
