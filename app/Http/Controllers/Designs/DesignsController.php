@@ -7,13 +7,19 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DesignResource;
+use App\Repositories\Contracts\IDesign;
 use Illuminate\Support\Facades\Storage;
 
 class DesignsController extends Controller
 {
+    protected $designs;
+    public function __construct(IDesign $designs)
+    {
+        $this->designs = $designs;
+    }
     public function index(Request $request)
     {
-        $designs= Design::all();
+        $designs= $this->designs->all();
         return response()->json(
             [
                 'message'=>trans('messages.success'),
