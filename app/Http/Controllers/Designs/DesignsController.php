@@ -11,6 +11,18 @@ use Illuminate\Support\Facades\Storage;
 
 class DesignsController extends Controller
 {
+    public function index(Request $request)
+    {
+        $designs= Design::all();
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'items'=>  DesignResource::collection($designs),
+            ]
+        );
+
+    }
     public function update(Request $request , $id)
     {
         $design = Design::find($id);
