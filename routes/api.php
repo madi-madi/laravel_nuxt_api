@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('me','User\MeController@getMe');
+Route::get('designs/list', 'Designs\DesignsController@index')->name('designs.list');
+Route::get('users/list', 'User\UserController@index')->name('users.list');
 
 Route::group(['middleware'=>['auth:api']],function(){
    Route::post('logout', 'Auth\LoginController@logout'); 
