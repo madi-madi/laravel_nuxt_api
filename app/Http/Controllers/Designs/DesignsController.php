@@ -17,7 +17,8 @@ class DesignsController extends Controller
         $this->authorize('update',$design);
         $this->validate($request,[
             'title'=>['required','unique:designs,title,'.$id],
-            'description'=>['required','min:20','max:100']
+            'description'=>['required','min:20','max:100'],
+            'tags'=>['required']
         ]);
 
        $design->update([
@@ -26,6 +27,9 @@ class DesignsController extends Controller
            'slug'=>Str::slug($request->title),
            'is_live'=> ! $design->upload_successfull? false:$request->is_live,
        ]);
+
+       // apply tagg
+       $design->retag($request->tags);
 
        return response()->json(
         [
