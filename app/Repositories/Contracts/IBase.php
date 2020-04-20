@@ -1,8 +1,8 @@
 <?php
 namespace App\Repositories\Contracts;
 
-interface IUser
+interface IBase
 {
-   // public function all();
+   public function all();
 //    public function getById();
 }

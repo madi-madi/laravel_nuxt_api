@@ -3,12 +3,13 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\User;
 use App\Repositories\Contracts\IUser;
+use App\Repositories\Eloquent\BaseRepository;
 
-class UserRepository implements IUser
+class UserRepository extends BaseRepository implements IUser
 {
-   public function all()
+   public function model()
    {
-        $users= User::all();
-        return $users;
+      $model = User::class;
+      return $model;
    }
 }
