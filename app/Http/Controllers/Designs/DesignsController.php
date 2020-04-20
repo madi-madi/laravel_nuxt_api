@@ -29,9 +29,15 @@ class DesignsController extends Controller
         );
 
     }
+
+    public function findDesign($id)
+    {
+        $design = $this->designs->find($id);
+        return new DesignResource($design);
+    }
     public function update(Request $request , $id)
     {
-        $design = Design::find($id);
+        $design = $this->designs->find($id);
         $this->authorize('update',$design);
         $this->validate($request,[
             'title'=>['required','unique:designs,title,'.$id],
@@ -39,7 +45,7 @@ class DesignsController extends Controller
             'tags'=>['required']
         ]);
 
-       $design->update([
+       $this->designs->update([
            'title'=>$request->title,
            'description'=>$request->description,
            'slug'=>Str::slug($request->title),
@@ -47,7 +53,7 @@ class DesignsController extends Controller
        ]);
 
        // apply tagg
-       $design->retag($request->tags);
+       $this->designs->applyTags($id ,$request->tags);
 
        return response()->json(
         [
@@ -60,7 +66,7 @@ class DesignsController extends Controller
 
     public function destroy(Request $request,$id)
     {
-        $design = Design::findOrFail($id);
+        $design = $this->designs->find($id);
         $this->authorize('delete',$design);
 
 
@@ -73,7 +79,7 @@ class DesignsController extends Controller
          }
         }
 
-        $design->delete();
+        $this->designs->delete();
 
         return response()->json(
             [
