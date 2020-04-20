@@ -81,7 +81,26 @@ class Handler extends ExceptionHandler
                     ]
                     ,404
                 );
+
+                
         }
+        if($exception instanceof ModelNotDefind && $request->expectsJson())
+        {
+                return response()->json(
+                    [
+                        "status" =>false,
+                        "message" =>trans('messages.model_not_defind'),
+                        "errors"=>[
+                            "message" =>trans('messages.model_not_defind'),
+                        ]
+                    ]
+                    ,404
+                );
+
+                
+        }
+
+        
         return parent::render($request, $exception);
     }
 }
