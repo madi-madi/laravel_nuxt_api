@@ -43,6 +43,7 @@ abstract class BaseRepository implements IBase {
       }
       public function update($id , array $data)
       {
+         return $data;
          $result = $this->find($id);
          $result->update($data);
          return $result;

@@ -45,7 +45,7 @@ class DesignsController extends Controller
             'tags'=>['required']
         ]);
 
-       $this->designs->update([
+        $design =  $this->designs->update($id,[
            'title'=>$request->title,
            'description'=>$request->description,
            'slug'=>Str::slug($request->title),
