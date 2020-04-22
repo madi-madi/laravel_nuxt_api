@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DesignResource;
 use App\Repositories\Contracts\IDesign;
 use Illuminate\Support\Facades\Storage;
+use App\Repositories\Eloquent\Criteria\isLive;
+use App\Repositories\Eloquent\Criteria\LatestFirst;
 
 class DesignsController extends Controller
 {
@@ -19,7 +21,11 @@ class DesignsController extends Controller
     }
     public function index(Request $request)
     {
-        $designs= $this->designs->all();
+        $designs = $this->designs->withCriteria([
+            new LatestFirst(),
+            new isLive()
+
+        ])->all();
         return response()->json(
             [
                 'message'=>trans('messages.success'),
@@ -45,7 +51,7 @@ class DesignsController extends Controller
             'tags'=>['required']
         ]);
 
-        $design =  $this->designs->update($id,[
+     $design =  $this->designs->update($id,[
            'title'=>$request->title,
            'description'=>$request->description,
            'slug'=>Str::slug($request->title),

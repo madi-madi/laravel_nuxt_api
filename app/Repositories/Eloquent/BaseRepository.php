@@ -4,11 +4,13 @@ namespace App\Repositories\Eloquent;
 
 use Exception;
 use App\Models\User;
+use Illuminate\Support\Arr;
 use App\Exceptions\ModelNotDefind;
 use App\Repositories\Contracts\IBase;
+use App\Repositories\Criteria\ICriteria;
 
 
-abstract class BaseRepository implements IBase {
+abstract class BaseRepository implements IBase , ICriteria{
       protected $model;
       public function __construct()
       {
@@ -16,7 +18,7 @@ abstract class BaseRepository implements IBase {
       }
       public function all()
       {
-         $users= $this->model::all();
+         $users= $this->model->get();
          return $users;
       }
       public function find($id)
@@ -49,6 +51,14 @@ abstract class BaseRepository implements IBase {
          return $result;
       }
       public function delete($id){}
+   public function withCriteria(...$criteria){
+      $criteria = Arr::flatten($criteria);
+      foreach ($criteria as $key => $criterion) {
+         $this->model = $criterion->apply($this->model);
+
+      }
+      return $this;
+   }
       // get model class
       protected function getModelClass()
       {
