@@ -9,8 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DesignResource;
 use App\Repositories\Contracts\IDesign;
 use Illuminate\Support\Facades\Storage;
-use App\Repositories\Eloquent\Criteria\isLive;
-use App\Repositories\Eloquent\Criteria\LatestFirst;
+use App\Repositories\Eloquent\Criteria\{
+    LatestFirst,
+    isLive,
+    ForUser
+};
 
 class DesignsController extends Controller
 {
@@ -23,7 +26,8 @@ class DesignsController extends Controller
     {
         $designs = $this->designs->withCriteria([
             new LatestFirst(),
-            new isLive()
+            new isLive(),
+            new ForUser(1)
 
         ])->all();
         return response()->json(
