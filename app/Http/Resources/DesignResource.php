@@ -17,7 +17,7 @@ class DesignResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            "user"=> new  UserResource($this->user),
+            "user"=> new  UserResource($this->whenLoaded('user')),
             "title"=> $this->title,
             "slug"=> $this->slug,
             "is_live"=> $this->is_live,

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Repositories\Eloquent\Criteria\{
     LatestFirst,
     isLive,
-    ForUser
+    ForUser,
+    EagerLoad
 };
 
 class DesignsController extends Controller
@@ -27,7 +28,8 @@ class DesignsController extends Controller
         $designs = $this->designs->withCriteria([
             new LatestFirst(),
             new isLive(),
-            new ForUser(1)
+            new ForUser(1),
+            new EagerLoad(['user'])
 
         ])->all();
         return response()->json(
