@@ -28,7 +28,7 @@ class DesignsController extends Controller
         $designs = $this->designs->withCriteria([
             new LatestFirst(),
             new isLive(),
-            new ForUser(1),
+            // new ForUser(1),
             new EagerLoad(['user'])
 
         ])->all();

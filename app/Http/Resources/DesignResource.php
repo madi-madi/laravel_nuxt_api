@@ -17,7 +17,6 @@ class DesignResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            "user"=> new  UserResource($this->whenLoaded('user')),
             "title"=> $this->title,
             "slug"=> $this->slug,
             "is_live"=> $this->is_live,
@@ -37,6 +36,8 @@ class DesignResource extends JsonResource
                 "updated_at_humans"=> $this->updated_at->diffForHumans(),
 
             ],
+            "comments"=>   CommentResource::collection($this->comments),
+            "user"=> new  UserResource($this->whenLoaded('user')),
 
         ];    
         // return parent::toArray($request);
