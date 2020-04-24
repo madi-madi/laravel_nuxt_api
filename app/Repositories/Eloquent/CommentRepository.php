@@ -1,15 +1,15 @@
 <?php
 namespace App\Repositories\Eloquent;
 
-use App\Models\User;
-use App\Repositories\Contracts\IUser;
+use App\Models\Comment;
+use App\Repositories\Contracts\IComment;
 use App\Repositories\Eloquent\BaseRepository;
 
-class CommentRepository extends BaseRepository implements IUser
+class CommentRepository extends BaseRepository implements IComment
 {
    public function model()
    {
-      $model = User::class;
+      $model = Comment::class;
       return $model;
    }
 }

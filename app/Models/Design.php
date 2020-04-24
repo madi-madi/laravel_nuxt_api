@@ -22,13 +22,10 @@ class Design extends Model
         'disk',
     ];
     // protected $appends = ['images'];
+
         public function comments()
         {
-            return $this->morphMany(Comment::class);
-        }
-        public function user()
-        {
-            return $this->belongsTo(User::class,'commentable')
+            return $this->morphMany(Comment::class,'commentable')
             ->orderBy('created_at','asc');
         }
 

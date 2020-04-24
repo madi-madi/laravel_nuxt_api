@@ -33,6 +33,8 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::post('designs', 'Designs\UploadController@upload')->name('designs.upload');
    Route::post('designs/{id}', 'Designs\DesignsController@update')->name('designs.update');
    Route::delete('designs/{id}', 'Designs\DesignsController@destroy')->name('designs.destroy');
+   Route::post('designs/{id}/comments', 'Designs\CommentController@store')->name('designs.comment.create');
+
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
@@ -42,6 +44,7 @@ Route::group(['middleware'=>['guest:api']],function(){
    Route::post('login', 'Auth\LoginController@login'); 
    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
    Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+
    
 
 });
