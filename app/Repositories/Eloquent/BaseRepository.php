@@ -45,12 +45,14 @@ abstract class BaseRepository implements IBase , ICriteria{
       }
       public function update($id , array $data)
       {
-         return $data;
          $result = $this->find($id);
          $result->update($data);
          return $result;
       }
-      public function delete($id){}
+      public function delete($id){
+         $result = $this->find($id);
+         return $result->delete();
+      }
    public function withCriteria(...$criteria){
       $criteria = Arr::flatten($criteria);
       foreach ($criteria as $key => $criterion) {

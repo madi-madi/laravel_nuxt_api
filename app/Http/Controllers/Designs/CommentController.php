@@ -38,4 +38,39 @@ class CommentController extends Controller
         );
         
     }
+
+    public function update(Request $request , $id)
+    {
+        $comment = $this->comments->find($id);
+        // $this->authorize('update', $comment);
+
+        $this->validate($request, [
+            'body' => ['required']
+        ]);
+        $comment = $this->comments->update($id, [
+            'body' => $request->body
+        ]);
+
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> new CommentResource($comment),
+            ]
+        );
+    }
+
+    public function destroy($id)
+    {
+        $comment = $this->comments->find($id);
+        // $this->authorize('delete',$comment);
+        $this->comments->delete($id);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> null,
+            ]
+        );
+    }
 }

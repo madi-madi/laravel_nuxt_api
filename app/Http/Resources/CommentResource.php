@@ -27,7 +27,7 @@ class CommentResource extends JsonResource
                 "updated_at_humans"=> $this->updated_at->diffForHumans(),
                 
             ],
-            "user"=> new  UserResource($this->whenLoaded('user')),
+            "user"=> new  UserResource($this->user),
         ];
         // return parent::toArray($request);
     }
