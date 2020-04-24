@@ -36,7 +36,7 @@ class DesignResource extends JsonResource
                 "updated_at_humans"=> $this->updated_at->diffForHumans(),
 
             ],
-            "comments"=>   CommentResource::collection($this->comments),
+            "comments"=>   CommentResource::collection($this->whenLoaded('comments')),
             "user"=> new  UserResource($this->whenLoaded('user')),
 
         ];    

@@ -29,7 +29,7 @@ class DesignsController extends Controller
             new LatestFirst(),
             new isLive(),
             // new ForUser(1),
-            new EagerLoad(['user'])
+            new EagerLoad(['user','comments'])
 
         ])->all();
         return response()->json(
