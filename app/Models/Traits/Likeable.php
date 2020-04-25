@@ -1,0 +1,39 @@
+<?php
+/* 
+PHP only supports single inheritance: a child class can inherit only from one single parent.
+
+So, what if a class needs to inherit multiple behaviors? OOP traits solve this problem.
+
+Traits are used to declare methods that can be used in multiple classes.
+ Traits can have methods and abstract methods that can be used in multiple classes,
+ and the methods can have any access modifier (public, private, or protected)
+*/
+namespace App\Models\Traits;
+use App\Models\Like;
+
+trait Likeable {
+      public function likes()
+      {
+         return $this->morphMany(Like::class,'likeable');                               
+      }
+
+      public function like()
+      {
+                    //          return $this->morphMany(Like::class,'likeable');   
+                    if(! auth()->check())
+                    return;
+                    $user_id_auth = auth()->id();
+                    // check if the current user has already liked the model
+                    if($this->isLikedByUser($user_id_auth))
+                    return;
+
+                    $this->likes()->create(['user_id',$user_id_auth]);
+
+      }
+      public function isLikedByUser($user_id)
+      {
+           return $this->likes()
+           ->where('user_id',$user_id)
+           ->count();
+      }
+}
