@@ -91,7 +91,7 @@ class DesignsController extends Controller
          }
         }
 
-        $this->designs->delete();
+        $this->designs->delete($id);
 
         return response()->json(
             [
@@ -101,6 +101,13 @@ class DesignsController extends Controller
             ]
             ,200
         );
-        // }
+      
     }
+
+    public function like($id)
+    {
+        $design = $this->designs->like($id);
+
+    }
+
 }

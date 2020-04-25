@@ -7,6 +7,7 @@ interface IDesign
    // public function allLive();
    public function applyTags($id , $data);
    public function addComment($designId ,array $data);
+   public function like($id);
 
 
 //    public function getById();
