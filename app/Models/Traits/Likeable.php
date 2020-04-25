@@ -30,6 +30,20 @@ trait Likeable {
                     $this->likes()->create(['user_id',$user_id_auth]);
 
       }
+
+      public function unlike()
+      {
+                    //          return $this->morphMany(Like::class,'likeable');   
+                    if(! auth()->check())
+                    return;
+                    $user_id_auth = auth()->id();
+                    // check if the current user has already liked the model
+                    if(! $this->isLikedByUser($user_id_auth))
+                    return;
+
+                    $this->likes()->where('user_id',$user_id_auth)->delete();
+
+      }
       public function isLikedByUser($user_id)
       {
            return $this->likes()
