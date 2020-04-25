@@ -110,4 +110,19 @@ class DesignsController extends Controller
 
     }
 
+
+    public function checkIfUserHasLiked($designId)
+    {
+        $design = $this->designs->isLikedByUser($designId);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> $design,
+            ]
+            ,200
+        );
+        
+    }
+
 }

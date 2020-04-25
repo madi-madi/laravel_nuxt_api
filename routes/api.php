@@ -33,11 +33,12 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::post('designs', 'Designs\UploadController@upload')->name('designs.upload');
    Route::post('designs/{id}', 'Designs\DesignsController@update')->name('designs.update');
    Route::delete('designs/{id}/delete', 'Designs\DesignsController@destroy')->name('designs.destroy');
+   Route::get('designs/{id}/liked', 'Designs\DesignsController@checkIfUserHasLiked')->name('designs.liked');
    Route::post('designs/{id}/like', 'Designs\DesignsController@like')->name('designs.like');
    Route::post('designs/{id}/comments', 'Designs\CommentController@store')->name('designs.comment.create');
    Route::post('comments/{id}/update', 'Designs\CommentController@update')->name('designs.comment.update');
    Route::delete('comments/{id}/delete', 'Designs\CommentController@destroy')->name('designs.comment.delete');
-
+   
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
