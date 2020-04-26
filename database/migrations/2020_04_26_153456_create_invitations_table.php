@@ -14,8 +14,16 @@ class CreateInvitationsTable extends Migration
     public function up()
     {
         Schema::create('invitations', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('team_id')->unsigned();
+            $table->bigInteger('sender_id')->unsigned();
+            $table->bigInteger('recipient_email')->index();
+            $table->bigInteger('token');
             $table->timestamps();
+
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+
         });
     }
 

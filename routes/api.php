@@ -48,6 +48,12 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::post('teams/{id}', 'Teams\TeamsController@update')->name('teams.update');
    Route::delete('teams/{id}', 'Teams\TeamsController@destroy')->name('teams.destroy');
 
+   //invitations
+   Route::post('invitations/{teamId}', 'Teams\InvitationsController@invite')->name('invitations.invite');
+   Route::post('invitations/{id}/resend', 'Teams\InvitationsController@resend')->name('invitations.resend');
+   Route::post('invitations/response', 'Teams\InvitationsController@response')->name('invitations.response');
+   Route::post('invitations/{id}', 'Teams\InvitationsController@destroy')->name('invitations.destroy');
+
 });
 
 Route::group(['middleware'=>['guest:api']],function(){

@@ -111,4 +111,9 @@ class User extends Authenticatable implements JWTSubject , MustVerifyEmail
 
 
     }
+
+    public function invitations()
+    {
+        return $this->hasMany(Invitaiton::class, 'recipient_email', 'email');
+    }
 }
