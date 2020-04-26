@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories\Contracts;
 
-interface IDesign
+interface ITeam
 {
 
    public function fetchUsersTeams();
