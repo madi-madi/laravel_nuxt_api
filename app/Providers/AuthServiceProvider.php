@@ -2,8 +2,16 @@
 
 namespace App\Providers;
 
-use App\Models\Design;
-use App\Policies\DesignPolicy;
+use App\Models\{
+    Team,
+    Design,
+    Comment,
+};
+use App\Policies\{
+    TeamPolicy,
+    DesignPolicy,
+    CommentPolicy,
+};
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
