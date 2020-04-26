@@ -36,18 +36,32 @@ class TeamsController extends Controller
                 'message'=>trans('messages.success'),
                 'errors'=>null,
                 'item'=> new TeamResource($team),
-            ]
+            ],200
         );
     }
 
     public function show($id)
     {
-        //
+        $team = $this->teams->find($id);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> new TeamResource($team),
+            ],200
+        );
     }
 
     public function fetchUsersTeams(Request $request)
     {
-        //
+        $teams = $this->teams->fetchUsersTeams();
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> TeamResource::collection($team),
+            ],200
+        );
     }
     public function findBySlug($slug)
     {
@@ -57,7 +71,23 @@ class TeamsController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $team = $this->teams->find($id);
+        $this->authorize('update', $team);
+
+        $this->validate($request, [
+            'name' => ['required','string','max:80','unique:teams,name,'.$id]
+        ]);
+        $team = $this->teams->update($id, [
+            'name' => $request->name
+        ]);
+
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'errors'=>null,
+                'item'=> new TeamResource($team),
+            ]
+        );
     }
 
     public function destroy($id)

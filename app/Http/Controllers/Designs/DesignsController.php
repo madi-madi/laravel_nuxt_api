@@ -54,11 +54,13 @@ class DesignsController extends Controller
         $this->validate($request,[
             'title'=>['required','unique:designs,title,'.$id],
             'description'=>['required','min:20','max:100'],
-            'tags'=>['required']
+            'tags'=>['required'],
+            'team'=>['required_if:asign_to_team,true']
         ]);
 
      $design =  $this->designs->update($id,[
            'title'=>$request->title,
+           'team_id'=>$request->team,
            'description'=>$request->description,
            'slug'=>Str::slug($request->title),
            'is_live'=> ! $design->upload_successfull? false:$request->is_live,

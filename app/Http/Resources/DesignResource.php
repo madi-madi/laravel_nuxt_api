@@ -30,13 +30,17 @@ class DesignResource extends JsonResource
             "created_at_dates"=> [
                 "created_at"=> $this->created_at,
                 "created_at_humans"=> $this->created_at->diffForHumans(),
-
+                
             ],
             "updated_at_dates"=> [
                 "updated_at"=> $this->updated_at,
                 "updated_at_humans"=> $this->updated_at->diffForHumans(),
-
+                
             ],
+            "team"=> $this->team?[
+                'name'=>$this->team->name,
+                'slug'=>$this->team->slug,
+            ]:null, //new TeamResource($this->team),
             "comments"=>   CommentResource::collection($this->whenLoaded('comments')),
             "user"=> new  UserResource($this->whenLoaded('user')),
 

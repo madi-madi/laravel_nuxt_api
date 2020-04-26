@@ -93,7 +93,7 @@ class User extends Authenticatable implements JWTSubject , MustVerifyEmail
     public function teams()
     {
         return $this->belongsToMany(Team::class)
-                    ->withTimesstamps();
+                    ->withTimestamps();
     }
 
     public function ownedTeams()
@@ -107,7 +107,8 @@ class User extends Authenticatable implements JWTSubject , MustVerifyEmail
         return (bool)$this->teams()
                         ->where('id',$team->id)
                         ->where('owner_id',$this->id)
-                        ->conut();
+                        ->count();
+
 
     }
 }
