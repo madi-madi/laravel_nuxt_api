@@ -24,6 +24,8 @@ Route::get('me','User\MeController@getMe');
 Route::get('designs/list', 'Designs\DesignsController@index')->name('designs.list');
 Route::get('designs/{id}', 'Designs\DesignsController@findDesign')->name('designs.find');
 Route::get('users/list', 'User\UserController@index')->name('users.list');
+//teams by slug
+Route::get('teams/slug/{slug}', 'Teams\TeamsController@findBySlug')->name('teams.slug');
 
 Route::group(['middleware'=>['auth:api']],function(){
    Route::post('logout', 'Auth\LoginController@logout'); 
@@ -38,7 +40,14 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::post('designs/{id}/comments', 'Designs\CommentController@store')->name('designs.comment.create');
    Route::post('comments/{id}/update', 'Designs\CommentController@update')->name('designs.comment.update');
    Route::delete('comments/{id}/delete', 'Designs\CommentController@destroy')->name('designs.comment.delete');
-   
+   //teams
+   Route::post('teams', 'Teams\TeamsController@store')->name('teams.store');
+   Route::get('teams', 'Teams\TeamsController@index')->name('teams.all');
+   Route::get('users/teams', 'Teams\TeamsController@fetchUsersTeams')->name('teams.fetchUsersTeams');
+   Route::get('teams/{id}', 'Teams\TeamsController@show')->name('teams.show');
+   Route::post('teams/{id}', 'Teams\TeamsController@update')->name('teams.update');
+   Route::post('teams/{id}', 'Teams\TeamsController@destroy')->name('teams.destroy');
+
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
