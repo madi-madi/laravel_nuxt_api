@@ -604,6 +604,7 @@ class ComposerStaticInit38b8dd62eac99b4f48b4f44c1f49faac
         'App\\Jobs\\UploadImage' => __DIR__ . '/../..' . '/app/Jobs/UploadImage.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\Design' => __DIR__ . '/../..' . '/app/Models/Design.php',
+        'App\\Models\\Invitation' => __DIR__ . '/../..' . '/app/Models/Invitation.php',
         'App\\Models\\Like' => __DIR__ . '/../..' . '/app/Models/Like.php',
         'App\\Models\\Team' => __DIR__ . '/../..' . '/app/Models/Team.php',
         'App\\Models\\Traits\\Likeable' => __DIR__ . '/../..' . '/app/Models/Traits/Likeable.php',

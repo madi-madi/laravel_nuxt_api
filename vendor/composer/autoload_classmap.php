@@ -41,6 +41,7 @@ return array(
     'App\\Jobs\\UploadImage' => $baseDir . '/app/Jobs/UploadImage.php',
     'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',
     'App\\Models\\Design' => $baseDir . '/app/Models/Design.php',
+    'App\\Models\\Invitation' => $baseDir . '/app/Models/Invitation.php',
     'App\\Models\\Like' => $baseDir . '/app/Models/Like.php',
     'App\\Models\\Team' => $baseDir . '/app/Models/Team.php',
     'App\\Models\\Traits\\Likeable' => $baseDir . '/app/Models/Traits/Likeable.php',
