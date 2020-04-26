@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,19 @@ class Team extends Model
         'slug',
         'owner_id',
     ];
+
+    protected static function boot(Type $var = null)
+    {
+        parent::boot();
+        // when team is created , add current user as team member
+        static ::created(function($team){
+            // auth()->user()->teams()->attach(auth()->id());
+            $team->members()->attach(auth()->id());
+        });
+        static ::deleting(function($team){
+            $team->members()->sync([]);
+        });
+    }
 
     public function owner()
     {

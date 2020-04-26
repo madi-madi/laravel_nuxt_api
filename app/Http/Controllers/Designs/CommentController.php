@@ -34,7 +34,7 @@ class CommentController extends Controller
                 'message'=>trans('messages.success'),
                 'errors'=>null,
                 'item'=> new CommentResource($comment),
-            ]
+            ],200
         );
         
     }
