@@ -17,8 +17,8 @@ class CreateInvitationsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('team_id')->unsigned();
             $table->bigInteger('sender_id')->unsigned();
-            $table->bigInteger('recipient_email')->index();
-            $table->bigInteger('token');
+            $table->string('recipient_email')->index();
+            $table->string('token');
             $table->timestamps();
 
             $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');

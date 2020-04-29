@@ -50,7 +50,7 @@ class Team extends Model
 
     public function invitations()
     {
-        return $this->hasMany(Invitaiton::class);
+        return $this->hasMany(Invitation::class);
     }
 
     public function hasPendingInvite($email)

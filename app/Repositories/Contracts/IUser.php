@@ -3,6 +3,5 @@ namespace App\Repositories\Contracts;
 
 interface IUser
 {
-   // public function all();
-//    public function getById();
+   public function findByEmail($email);
 }
