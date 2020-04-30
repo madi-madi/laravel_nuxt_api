@@ -47,12 +47,13 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::get('teams/{id}', 'Teams\TeamsController@show')->name('teams.show');
    Route::post('teams/{id}', 'Teams\TeamsController@update')->name('teams.update');
    Route::delete('teams/{id}', 'Teams\TeamsController@destroy')->name('teams.destroy');
+   Route::delete('teams/{team_id}/user/{user_id}', 'Teams\TeamsController@removeFromTeam')->name('teams.removeFromTeam');
 
    //invitations
    Route::post('invitations/{teamId}', 'Teams\InvitationsController@invite')->name('invitations.invite');
    Route::post('invitations/{id}/resend', 'Teams\InvitationsController@resend')->name('invitations.resend');
-   Route::post('invitations/response', 'Teams\InvitationsController@response')->name('invitations.response');
-   Route::post('invitations/{id}', 'Teams\InvitationsController@destroy')->name('invitations.destroy');
+   Route::post('invitations/{id}/respond', 'Teams\InvitationsController@respond')->name('invitations.response');
+   Route::delete('invitations/{id}', 'Teams\InvitationsController@destroy')->name('invitations.destroy');
 
 });
 
