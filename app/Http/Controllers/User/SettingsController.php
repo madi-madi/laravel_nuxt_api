@@ -17,8 +17,8 @@ class SettingsController extends Controller
         $user = auth()->user();
         $this->validate($request,[
             // "id"=>['required'],
-            "name"=> ['required'] ,
-            "username"=> ['required'],
+            "name"=> ['required','unique:users,name,'.$user->id] ,
+            "username"=> ['required','unique:users,username,'.$user->id],
             "tagline"=>['required'],
             "about"=> ['required','string','min:20'],
             "location.latitude"=>['required','numeric','min:-90','max:90'],

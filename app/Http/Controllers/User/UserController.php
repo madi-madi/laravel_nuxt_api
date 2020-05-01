@@ -32,4 +32,18 @@ class UserController extends Controller
             ]
             ,200);
     }
+
+    public function search(Request $request)
+    {
+        $designers = $this->users->search($request);
+        $designers = UserResource::collection($designers);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>(bool)$designers,
+                'errors'=>null,
+                'items'=>  UserResource::collection($designers),
+            ]
+            ,200);
+    }
 }

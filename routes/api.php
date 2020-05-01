@@ -64,6 +64,8 @@ Route::group(['middleware'=>['auth:api']],function(){
 
    // search designs
    Route::get('search/designs', 'Designs\DesignsController@search');
+   Route::get('search/designers', 'User\UserController@search');
+   
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
