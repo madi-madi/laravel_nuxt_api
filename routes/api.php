@@ -26,6 +26,7 @@ Route::get('designs/{id}', 'Designs\DesignsController@findDesign')->name('design
 Route::get('users/list', 'User\UserController@index')->name('users.list');
 //teams by slug
 Route::get('teams/slug/{slug}', 'Teams\TeamsController@findBySlug')->name('teams.slug');
+Route::get('teams/{id}/designs', 'Designs\DesignsController@getForTeam')->name('teams.getForTeam');
 
 Route::group(['middleware'=>['auth:api']],function(){
    Route::post('logout', 'Auth\LoginController@logout'); 

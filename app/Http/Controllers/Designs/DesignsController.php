@@ -141,5 +141,12 @@ class DesignsController extends Controller
             ,200
         );
     }
-
+    public function findBySlug($slug)
+    {
+        $design = $this->designs->withCriteria([
+                new IsLive(), 
+                new EagerLoad(['user', 'comments'])
+            ])->findWhereFirst('slug', $slug);
+        return new DesignResource($design);
+    }
 }
