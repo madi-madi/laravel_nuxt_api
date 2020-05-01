@@ -61,6 +61,9 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::get('chats/{id}/messages', 'Chats\ChatController@getChatMessages');
    Route::post('chats/{id}/markAsRead', 'Chats\ChatController@markAsRead');
    Route::delete('messages/{id}', 'Chats\ChatController@destroyMessage');
+
+   // search designs
+   Route::get('search/designs', 'Designs\DesignsController@search');
 });
 
 Route::group(['middleware'=>['guest:api']],function(){

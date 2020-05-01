@@ -127,4 +127,19 @@ class DesignsController extends Controller
         
     }
 
+    public function search(Request $request)
+    {
+        $designs = $this->designs->search($request);
+         $designs = DesignResource::collection($designs);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>true,
+                'errors'=>null,
+                'items'=> $designs,
+            ]
+            ,200
+        );
+    }
+
 }
