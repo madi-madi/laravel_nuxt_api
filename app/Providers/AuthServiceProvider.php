@@ -6,13 +6,15 @@ use App\Models\{
     Team,
     Design,
     Comment,
-    Invitation
+    Invitation,
+    Message
 };
 use App\Policies\{
     TeamPolicy,
     DesignPolicy,
     CommentPolicy,
-    InvitationPolicy
+    InvitationPolicy,
+    MessagePolicy
 };
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -30,6 +32,8 @@ class AuthServiceProvider extends ServiceProvider
         Comment::class => CommentPolicy::class,
         Team::class => TeamPolicy::class,
         Invitation::class => InvitationPolicy::class,
+        Message::class => MessagePolicy::class
+
         
     ];
 

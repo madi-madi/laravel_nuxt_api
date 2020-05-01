@@ -55,6 +55,12 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::post('invitations/{id}/respond', 'Teams\InvitationsController@respond')->name('invitations.response');
    Route::delete('invitations/{id}', 'Teams\InvitationsController@destroy')->name('invitations.destroy');
 
+   // Chats
+   Route::post('chats', 'Chats\ChatController@sendMessage');
+   Route::get('chats', 'Chats\ChatController@getUserChats');
+   Route::get('chats/{id}/messages', 'Chats\ChatController@getChatMessages');
+   Route::post('chats/{id}/markAsRead', 'Chats\ChatController@markAsRead');
+   Route::delete('messages/{id}', 'Chats\ChatController@destroyMessage');
 });
 
 Route::group(['middleware'=>['guest:api']],function(){
