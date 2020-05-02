@@ -1,0 +1,2237 @@
+{
+	"info": {
+		"_postman_id": "5afa241b-675f-470f-8d80-e2a9e30b1204",
+		"name": "laravel_nuxt_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "verification",
+					"item": [
+						{
+							"name": "resend",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ibrahim.s.m.2010@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}verification/resend?email",
+									"host": [
+										"{{url}}verification"
+									],
+									"path": [
+										"resend"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "verifiy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "expires",
+											"value": "1586542292",
+											"type": "text"
+										},
+										{
+											"key": "signature",
+											"value": "75af9114d052862a174b28bbb0f1651b681a6163de86c9071725317c5991ffee",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}verification/verify/2",
+									"host": [
+										"{{url}}verification"
+									],
+									"path": [
+										"verify",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "rest password",
+					"item": [
+						{
+							"name": "reset password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ibrahim.s.m.2010@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}password/email",
+									"host": [
+										"{{url}}password"
+									],
+									"path": [
+										"email"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset pass",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ibrahim.s.m.2010@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}password/reset?token=f769c78c47a94931254e7fa755755cc35aa86b8d1e0c1baacb1e5a5cce878772&password=password&password_confirmation=password",
+									"host": [
+										"{{url}}password"
+									],
+									"path": [
+										"reset"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "f769c78c47a94931254e7fa755755cc35aa86b8d1e0c1baacb1e5a5cce878772"
+										},
+										{
+											"key": "password",
+											"value": "password"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ibrahim Madi",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Dev_Ibrahim2016",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ibrahim.s.m.2010@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}register",
+							"host": [
+								"{{url}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ibrahim.s.m.2010@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pass2010",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}login",
+							"host": [
+								"{{url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}logout",
+							"host": [
+								"{{url}}logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}me",
+							"host": [
+								"{{url}}me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER UPDATE PROFILE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t            \"name\":\"Ibrahim .S Madi\",\n            \"username\":\"Dev.Ibrahim\",\n            \"tagline\":\"Full Stack Developer\",\n            \"about\":\"Full Stack Developer\",\n            \"location\":{\n            \t\"latitude\":90 ,\n            \t\"longitude\":180\n            \t\n            },\n            \n            \"formatted_address\":\"Gaza, Palestine\",\n            \"available_to_hire\":true\n}"
+						},
+						"url": {
+							"raw": "{{url}}settings/profile",
+							"host": [
+								"{{url}}settings"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER UPDATE PASSWORD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t            \"current_password\":\"password\",\n            \"password\":\"pass2010\",\n            \"password_confirmation\":\"pass2010\"\n\n}"
+						},
+						"url": {
+							"raw": "{{url}}settings/password",
+							"host": [
+								"{{url}}settings"
+							],
+							"path": [
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Designs",
+			"item": [
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "Create Design Comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "body",
+											"value": "Full stack Developer vue Comment",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc dev php laravel vue nuxt",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "is_live",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}designs/17/comments",
+									"host": [
+										"{{url}}designs"
+									],
+									"path": [
+										"17",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Design Comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "body",
+											"value": "Full stack Developer vue comment ........2020",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc dev php laravel vue nuxt",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "is_live",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}comments/3/update",
+									"host": [
+										"{{url}}comments"
+									],
+									"path": [
+										"3",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Design Comment Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "body",
+											"value": "Full stack Developer vue comment ........2020",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc dev php laravel vue nuxt",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "is_live",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}comments/3/delete",
+									"host": [
+										"{{url}}comments"
+									],
+									"path": [
+										"3",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Likes",
+					"item": [
+						{
+							"name": "Design  add like",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Full stack Developer vue",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc dev php laravel vue nuxt",
+											"type": "text"
+										},
+										{
+											"key": "is_live",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}designs/17/like",
+									"host": [
+										"{{url}}designs"
+									],
+									"path": [
+										"17",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check if user liked a Design",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Full stack Developer vue",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc dev php laravel vue nuxt",
+											"type": "text"
+										},
+										{
+											"key": "is_live",
+											"value": "1",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}designs/18/liked",
+									"host": [
+										"{{url}}designs"
+									],
+									"path": [
+										"18",
+										"liked"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Design",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs",
+							"host": [
+								"{{url}}designs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Design",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}designs",
+							"host": [
+								"{{url}}designs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Design",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "php Laravel,Wordpress php",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs/19?asign_to_team=true&team=9",
+							"host": [
+								"{{url}}designs"
+							],
+							"path": [
+								"19"
+							],
+							"query": [
+								{
+									"key": "asign_to_team",
+									"value": "true"
+								},
+								{
+									"key": "team",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Design list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs/list?_debug=true",
+							"host": [
+								"{{url}}designs"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "_debug",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Design For User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}users/1/designs",
+							"host": [
+								"{{url}}users"
+							],
+							"path": [
+								"1",
+								"designs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Design For Team",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams/10/designs",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"10",
+								"designs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Design Find By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs/122",
+							"host": [
+								"{{url}}designs"
+							],
+							"path": [
+								"122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Design Find By Slug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs/slug/full-stack-developer-vue",
+							"host": [
+								"{{url}}designs"
+							],
+							"path": [
+								"slug",
+								"full-stack-developer-vue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Owns Design",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}designs/19/byUser",
+							"host": [
+								"{{url}}designs"
+							],
+							"path": [
+								"19",
+								"byUser"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Users list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}users/list?_debug=true",
+							"host": [
+								"{{url}}users"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "_debug",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users find By Username",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Full stack Developer vue",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc dev php laravel vue nuxt",
+									"type": "text"
+								},
+								{
+									"key": "is_live",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}user/Dev.Ibrahim",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"Dev.Ibrahim"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Invitations",
+					"item": [
+						{
+							"name": "Send Invitations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}invitations/10?email=ibrahim.s.m.2010@gmail.com",
+									"host": [
+										"{{url}}invitations"
+									],
+									"path": [
+										"10"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "ibrahim.s.m.2010@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Invitations",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}invitations/3",
+									"host": [
+										"{{url}}invitations"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RESend Invitations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}invitations/1/resend",
+									"host": [
+										"{{url}}invitations"
+									],
+									"path": [
+										"1",
+										"resend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Response Invitations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}invitations/4/respond?token=b5f70fff34efaea2037e7078507d5dbc&decision=accept",
+									"host": [
+										"{{url}}invitations"
+									],
+									"path": [
+										"4",
+										"respond"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "b5f70fff34efaea2037e7078507d5dbc"
+										},
+										{
+											"key": "decision",
+											"value": "accept"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams?name=Rasd",
+							"host": [
+								"{{url}}teams"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Rasd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams/9?name=test",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"9"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Team BYID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams/9",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Teams",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams",
+							"host": [
+								"{{url}}teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user from team",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams/10/user/1",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"10",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Chats",
+			"item": [
+				{
+					"name": "Messages",
+					"item": [
+						{
+							"name": "Delete Message",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}messages/id",
+									"host": [
+										"{{url}}messages"
+									],
+									"path": [
+										"id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sendMessage",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{Authorization}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}chats?recipient&body",
+									"host": [
+										"{{url}}chats"
+									],
+									"query": [
+										{
+											"key": "recipient",
+											"value": null
+										},
+										{
+											"key": "body",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Chat markAsRead",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}chats/{id}/markAsRead",
+							"host": [
+								"{{url}}chats"
+							],
+							"path": [
+								"{id}",
+								"markAsRead"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chat Messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}chats/{id}/messages",
+							"host": [
+								"{{url}}chats"
+							],
+							"path": [
+								"{id}",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Chats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}chats",
+							"host": [
+								"{{url}}chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user from team",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}teams/10/user/2",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"10",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "218a5f7a-bcba-4a6d-ac7c-b761d6be60fa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9407243-2a66-4e37-9536-6a563249dff6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search Designs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}search/designs?q=dev&has_comments=0&has_team=1",
+							"host": [
+								"{{url}}search"
+							],
+							"path": [
+								"designs"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "dev"
+								},
+								{
+									"key": "has_comments",
+									"value": "0"
+								},
+								{
+									"key": "has_team",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Designer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{Authorization}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/forsan/Desktop/2020/logo-forsan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}search/designs?q=dev&has_comments=0&has_team=1",
+							"host": [
+								"{{url}}search"
+							],
+							"path": [
+								"designs"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "dev"
+								},
+								{
+									"key": "has_comments",
+									"value": "0"
+								},
+								{
+									"key": "has_team",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
