@@ -24,6 +24,8 @@ Route::get('me','User\MeController@getMe');
 Route::get('designs/list', 'Designs\DesignsController@index')->name('designs.list');
 Route::get('designs/{id}', 'Designs\DesignsController@findDesign')->name('designs.find');
 Route::get('users/list', 'User\UserController@index')->name('users.list');
+Route::get('user/{username}', 'User\UserController@findByUsername')->name('users.findByUsername');
+
 //teams by slug
 Route::get('teams/slug/{slug}', 'Teams\TeamsController@findBySlug')->name('teams.slug');
 Route::get('teams/{id}/designs', 'Designs\DesignsController@getForTeam')->name('teams.getForTeam');
@@ -39,8 +41,11 @@ Route::group(['middleware'=>['auth:api']],function(){
    Route::get('designs/{id}/liked', 'Designs\DesignsController@checkIfUserHasLiked')->name('designs.liked');
    Route::post('designs/{id}/like', 'Designs\DesignsController@like')->name('designs.like');
    Route::post('designs/{id}/comments', 'Designs\CommentController@store')->name('designs.comment.create');
+   Route::get('designs/slug/{slug}', 'Designs\DesignsController@findBySlug')->name('designs.slug');
+   Route::get('designs/{id}/byUser', 'Designs\DesignsController@userOwnsDesign')->name('designs.userOwnsDesign');
    Route::post('comments/{id}/update', 'Designs\CommentController@update')->name('designs.comment.update');
    Route::delete('comments/{id}/delete', 'Designs\CommentController@destroy')->name('designs.comment.delete');
+   Route::get('users/{id}/designs', 'Designs\DesignsController@getForUser')->name('designs.getForUser');
    //teams
    Route::post('teams', 'Teams\TeamsController@store')->name('teams.store');
    Route::get('teams', 'Teams\TeamsController@index')->name('teams.all');

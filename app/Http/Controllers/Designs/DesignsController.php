@@ -149,4 +149,49 @@ class DesignsController extends Controller
             ])->findWhereFirst('slug', $slug);
         return new DesignResource($design);
     }
+    public function getForTeam($teamId)
+    {
+        $designs = $this->designs
+                        ->withCriteria([new IsLive()])
+                        ->findWhere('team_id', $teamId);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>(bool)$designs,
+                'errors'=>null,
+                'item'=>  DesignResource::collection($designs),
+            ]
+            ,200);
+    }
+
+    public function getForUser($userId)
+    {
+        $designs = $this->designs
+                        //->withCriteria([new IsLive()])
+                        ->findWhere('user_id', $userId);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>(bool)$designs,
+                'errors'=>null,
+                'item'=>  DesignResource::collection($designs),
+            ]
+            ,200);
+    }
+
+    public function userOwnsDesign($id)
+    {
+        $design = $this->designs->withCriteria(
+            [ new ForUser(auth()->id())]
+        )->findWhereFirst('id', $id);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>(bool)$design,
+                'errors'=>null,
+                'item'=>  new DesignResource($design),
+            ]
+            ,200);
+        
+    }
 }

@@ -18,6 +18,7 @@ class UserResource extends JsonResource
             "id"=> $this->id,
             "name"=> $this->name,
             "username"=> $this->username,
+            "photo_url"=> $this->photo_url,
             "designs"=> DesignResource::collection($this->whenloaded('designs')),
             "email"=> $this->email,
             "email_verified_at"=> $this->email_verified_at,

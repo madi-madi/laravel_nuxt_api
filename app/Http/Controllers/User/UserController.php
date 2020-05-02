@@ -46,4 +46,17 @@ class UserController extends Controller
             ]
             ,200);
     }
+
+    public function findByUsername($username)
+    {
+        $user = $this->users->findWhereFirst('username', $username);
+        return response()->json(
+            [
+                'message'=>trans('messages.success'),
+                'status'=>(bool)$user,
+                'errors'=>null,
+                'item'=>  new UserResource($user),
+            ]
+            ,200);
+    }
 }
