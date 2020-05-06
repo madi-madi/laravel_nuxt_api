@@ -26,7 +26,8 @@ class ForgotPasswordController extends Controller
     {
         return response()->json([
             'message'=>trans($response),
-            'errors'=>null
+            'errors'=>null,
+            'status'=>true
         ],200);
         // return $request->wantsJson()
         //             ? new JsonResponse(['message' => trans($response)], 200)

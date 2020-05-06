@@ -16,11 +16,14 @@ class VerifyEmail extends Notification
 
     protected function verificationUrl($notifiable)
     {
-        $appUrl = config('app.client_url');
-        $url =  URL::temporarySignedRoute(
+        $appUrl = config('app.client_url', config('app.url'));
+
+        $url = URL::temporarySignedRoute(
             'verification.verify', 
-            Carbon::now()->addMinutes(60), ['user' => $notifiable->id]
+            Carbon::now()->addMinutes(60), 
+            ['user' => $notifiable->id]
         );
-        return \str_replace('/api',$appUrl , $url);
+
+        return str_replace(url('/api'), $appUrl, $url);
     }
 }

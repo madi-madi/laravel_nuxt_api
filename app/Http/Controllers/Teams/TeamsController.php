@@ -70,7 +70,7 @@ class TeamsController extends Controller
             [
                 'message'=>trans('messages.success'),
                 'errors'=>null,
-                'item'=> TeamResource::collection($team),
+                'items'=> TeamResource::collection($teams),
             ],200
         );
     }

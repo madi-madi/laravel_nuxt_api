@@ -90,9 +90,10 @@ class LoginController extends Controller
         // $user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()
         if($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()){
             return response()->json([
+                'message'=>trans('auth.must_verification_email'),
                 'errors'=>['verification'=>trans('auth.must_verification_email')]
 
-            ]);
+            ],422);
         }
         throw ValidationException::withMessages([
             $this->username() => [trans('auth.failed')],
